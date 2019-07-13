@@ -1,0 +1,51 @@
+1.卸载mysql5.7
+```
+$sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+$sudo apt-get autoremove -y
+$sudo apt-get autoclean
+$rm -rf /etc/mysql
+$sudo find / -iname 'mysql*' -exec rm -rf {} \; 
+```
+2.安装mysql8
+```
+1.下载apt仓库：https://dev.mysql.com/download/repo/apt/    下载(mysql-apt-config_0.8.13-all.deb)
+2.增加到仓库： 
+  shell>sudo dpkg -i /PATH/version-sepcific-package-name.beb   
+  for example：sudo dpkg -i mysql-apt-config_w.x.y-z_all.deb  OR with sudo dpkg -i mysql-apt-config_0.8.13-all.deb
+3.数据Ubuntu数据: sudo apt-get update
+4.sudo apt-get install mysql-server   输入密码
+5.mysql -V
+```
+2.使用mysql8 启动登录教程：
+```
+1.sudo service mysql status
+2.sudo service mysql stop
+3.sudo service mysql start
+4.sudo service mysql restart
+5.mysql -u root -h127.0.0.1 -p password
+```
+3.数据库教程
+```
+
+1.show databases;  展示数据库 CREATE DATABASE 数据库名;
+2.use 数据库;    选择数据库
+3.drop databases 数据库名;    删除数据库
+4.创建数据表:
+  create tables 数据表名;   创建数据表名
+  show tables;    展示数据表
+  desc 数据表名;    展示数据内容
+```
+
+数据库插入端口号:
+```
+show global variables like 'port';
+variable_name value
+port    3306
+```
+注：
+```
+1.数据名字用 db_name  数据表用tb_name
+
+```
+
+

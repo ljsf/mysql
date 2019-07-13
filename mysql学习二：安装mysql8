@@ -48,4 +48,27 @@ port    3306
 
 ```
 
+4.mysql的配置： 在/etc/mysql/mysql.cnf中查看mysql.conf.d 中的mysqld.conf   每次配置完成要重启mysql
+  怎么实现局域网连接
+  
+  
+1.改表方法：登录进mysql后，更改mysql里的user表里的host，将host改为'%'
+mysql>update user set host='%‘ where user='root';
+mysql>select host, user from user;
+重启
+2.授权方法
+  
+  ```
+  mysql --help
+  mysql>select version()
+  mysql>use mysql;
+  mysql>show tables;
+  mysql>select user, host from user;
+  mysql>update user set host='%' where user='root'
+  重启mysql 就可以重新远程连接了
+  ```
+  
+ 5.使用Navicat来连接数据库
+
+
 

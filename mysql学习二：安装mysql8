@@ -37,6 +37,7 @@ $sudo find / -iname 'mysql*' -exec rm -rf {} \;
 ```
 
 数据库插入端口号:
+
 ```
 show global variables like 'port';
 variable_name value
@@ -76,3 +77,7 @@ mysql>select host, user from user;
     4.然后选择产品类别(1)和语言(1)和主版本号(12)
     5.断开网络并打开Navicat，找到注册，并激活----一般用激活失败---手动激活，直接选择----把窗口的请求码，复制它并把它粘贴到Keygen里，至少要回车两下结束输入----在手会得到一个Base64编码的激活码，直接复制他，到Navicat，手动激活就成功了
 
+
+6.Navicat的使用：
+    字符集使用utf8mb4
+    ai-ci字符集排序

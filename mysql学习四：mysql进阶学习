@@ -86,5 +86,67 @@
     cls_id int unsigned       // 切记最后一个不要加逗号
    );
    ```
-    
+   
+   注： sql里面注释是  --注释    字段都是加上 alter table
+   修改表的结构：
+   修改表--添加字段
+   alter table students add birthday datetime;
+   修改表--修改字段
+   不重命名版
+   -- alert table 表名 modify 列名 类型及约束;
+   alter table students modify birthday date;
+   重命名版
+   -- alter table 表名 change 原名 新名 类型及约束;
+   alter table students change birthday birth date default "2000-01-01";
+   修改表--删除字段
+   -- drop table 表名;
+   alter table students drop high;
+   
+   删除表 drop table 数据表;
+   查看数据表： show create table tb_name;
+   插入数据 记录：
+   insert into students values(0, "老王", 18, 188.88, "男", 0);
+   select * from students;
+   
+   
+   数据库引擎：engine=InnoDB  默认都是使用InnoDB
+   
+   ==============================================================
+   
+   数据表里面数据的，增加删改查
+   
+   -- 增加
+   -- 向classes表中插入，数据 可以用 0,default null 来占位
+   insert into classes values(0, "菜鸟帮");
+   insert into classes values(null, "lao");
+   枚举可以用数字来代表插入
+   枚举中小标是从1开始，1---"男"
+   
+   部分插入：
+   insert into students (name, gender) values (default, "小李飞刀");
+   
+   多行插入：
+   insert into students (name, gender) values ("大乔", 2), ("貂蝉", 2);
+   insert into students values(default, "西施", 20, "女", 1, "1990-01-01"), (default, "王昭君",20, "女", 1, "1990-01-01");
+   
+   修改：
+   -- update 表名 set gender=1 where id=3; 
+   update students set age=22, gender="男" where name="小李飞刀";  -- 只要name是小李飞刀的全部修改，如果没有where是全部修改
+   
+   删除：
+   -- 物理删除
+   -- delete from 表名 where 条件
+   -- 逻辑删除
+   -- 用一个字段来表示，这条信息是否已经不能再使用了
+   -- 给students表添加一个is_delete字段bit类型 是二进制一个 只能放两个0和1 
+   -- alter table students add is_delete bit default 0;   // 字节   用select * from students;  是看不见的，至少是一个字节，看不见bit select * from students where is_delete=0; or with select * from students where is_delete=1;
+   -- update students set is_delete=1 where id=6;
+   
+   ====================================查询==================================
+   查询：
+   select * from tb_name where name="小李飞刀"; or with select * from tb_name where id>2;
+   select name, gender from students;
+   select name as 姓名, gender as 性别 from students;
+   
+   
   

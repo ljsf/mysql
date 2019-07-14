@@ -22,7 +22,7 @@
     外键foreign key：对关系字段进行约束，当为关系字段填写值时，会关联的表中查询此值是否存在，如果存在则填写成功，如果不存在则填写失败并抛出异常
     说明：虽然外键约束可以保证数据的有效性，但进行数据crud(增加，修改，删除，查询)时，都会降低数据库的性能，所以不推荐使用，那么数据的有效性怎么保证？答：可以在逻辑层进行控制
     
-  类型  字节  有符号范围   无符号范围
+  类型  字节  （signed）有符号范围  （unsigned） 无符号范围
   TINYINT 1 -128~127  0~255
   SMALLINT 2 -32768~32767 0~65535
   MEDIUMINT 3 -8388608~8388607  0~16777215
@@ -75,6 +75,16 @@
     -- desc 数据表的名字
     desc xxxxx;
     
-    --- 创建
-  
+    --- 练习 ----创建一个student(id,name,age,high,gender,cls_id)
+   ```
+   create table student(
+    id int unsigned not null auto_increment primary key,    // 不为空，自动增加，主键
+    name varchar(30),
+    age tinyint unsigned dedault 0,   // unsigned是无符号操作，默认是有符号的
+    high decimal(5,2),    // 小数一般用decimal
+    gender enum("男", "女", "中性", "保密") default "保密", // 枚举，当数字比较小的时候，default，默认情况下选择的内容
+    cls_id int unsigned       // 切记最后一个不要加逗号
+   );
+   ```
+    
   

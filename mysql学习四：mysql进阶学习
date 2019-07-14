@@ -14,7 +14,7 @@
     字符串text表示存储大文本，当字符串大于4000时推荐使用
     对于图片，音频，视频等文件，不存储在数据库中，而是上传到某个服务器上，然后在表中存储这个文件的保存路径
     
-   约束
+   约束   保证数据稳定可靠
     主键primary key：物理上存储的顺序
     非空not null：此字段不允许填写空值
     唯一unique：此字段的值不一样重复
@@ -42,5 +42,39 @@
   DATETIME  8    '2020-01-01 12:29:59'
   YEAR  1         '2017'
   TIMESTAMP 4     '1970-01-01 00:00:01' UTC ~ '2038-01-01 00:00:01 'UTC
+  
+  ==============================================================
+  命令行脚本，操作数据库
+  登录 mysql -uroot -hlocalhost -p
+  退出 exit
+  sql语句后面要更 ;
+  显示数据版本 select version();
+  显示时间  select now();
+  查看数据库 show databases;
+  创建数据库 create database db_name;
+  查看创建数据的语句 show create database db_name;
+  删除数据库 drop database db_name;
+  查看当前使用的数据库  `python-04`合并的意思
+  
+  
+  操作数据表
+  查看当前数据库 select database();  
+  use db_name  选择数据库
+  
+  查看数据表 show tables;
+  查看数据表的结构 desc 数据表的名字;   
+  创建表：
+    create table xxxx(id int, name varchar(30));
+    create table yyyy(id int primary key not null auto_increment, name varchar(30));
+    
+    create table yyyy(
+      id int primary key not null auto_increment,
+      name varchar(30),
+    );
+    
+    -- desc 数据表的名字
+    desc xxxxx;
+    
+    --- 创建
   
   

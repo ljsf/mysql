@@ -1,1 +1,70 @@
-查询：
+-- 数据准备
+  -- 创建一个数据库
+  create database db_test2;
+  -- 使用一个数据库
+  use db_test2;
+  -- 显示使用当前数据是哪个?
+  select database();
+  -- 创建一个数据表
+  -- students表
+  create table students(
+    id int unsigned primary key auto_increment not null,
+    name varchar(20) default '',
+    age tinyint unsigned default 0,
+    height decimal(5,2),
+    gender enum('男','女','中性','保密') default '保密',
+    cls_id int unsigned default 0,
+    is_delete bit default 0   //bit(2)
+  );
+  -- classes表
+  create table classes(
+    id int unsigned auto_increment primary key not null,
+    name varchar(30) not null
+  );
+  -- 准备数据
+  -- 想students表中插入数据
+  insert into students values
+  (0,'小明',18,180.00,2,1,0),
+  (0,'小月月',18,180.00,2,1,1),
+  (0,'彭于晏',29,185.00,1,1,0),
+  (0,'刘德华',59,175.00,1,2,1),
+  (0,'黄蓉',38,160.00,2,1,0),
+  (0,'凤姐',28,150.00,4,2,1),
+  (0,'王祖贤',18,172.00,2,1,1),
+  (0,'周杰伦',36,NULL,1,1,0),
+  (0,'陈坤',27,181.00,1,2,0),
+  (0,'刘亦菲',25,166.00,2,2,0),
+  (0,'金星',33,162.00,3,3,1),
+  (0,'静香',12,180.00,2,4,0),
+  (0,'郭靖',12,170.00,1,4,0),
+  (0,'周杰',34,176.00,2,5,0);
+  
+  -- 向classes表中插入数据
+  insert into classes value (0, "python_01期"), (0, "python_02");
+  
+
+-- 查询：
+  -- 查询所有字段
+  -- select * from 表名;
+ 
+  -- 查询指定字段
+  -- select 列1,列2,... from 表名;
+  
+  -- 使用as给字段起别名
+  -- select 字段 as 名字... from 表名;
+  
+  -- select 表名.字段 ... from 表名;
+  
+  -- 可以通过as给表起别名
+  -- select 别名.字段 ... from 表名 as 别名;
+  
+  -- 消除重复行
+  -- distinct 字段
+  
+ -- 条件查询
+  -- 比较运算符
+    -- select ... from 表名 where ...
+    -- >
+    -- 查询大于18岁的信息
+    -- <
+    -- 查询小于18岁的信息

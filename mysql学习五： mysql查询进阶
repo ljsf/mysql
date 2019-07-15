@@ -105,6 +105,8 @@
    -- rlike 正则
    -- 查询以 周开始的姓名
    select name from students where name rlike "^周.*";
-    
+   -- 正则表达式-链接-https://www.cnblogs.com/fozero/p/7868687.html
+   
+   
     
     

@@ -108,5 +108,76 @@
    -- 正则表达式-链接-https://www.cnblogs.com/fozero/p/7868687.html
    
    
+  -- 范围查询
+    -- in (1,3,8)表示在一个非连续的范围内 
+    -- 年龄为18,34的年龄
+    select * from students where age in (12,18,34); or not in
+    
+    -- 查询连续范围内的 between ... and ...表示一个连续的范围内
+    -- 查询年龄在18到34的信息
+    select name, age from students where age not between 18 and 34; or with select name,age from students where not age between 18 and 34
+    
+   -- 空判断
+    -- 判空 is null
+    -- 查询身高为空的信息
+    select * from students where height is null;
+    
+    -- 判非空  is not null
+    
+   -- 排序
+    -- 查询年龄18到34岁的男性，按到年龄从小到达的排序
+    select * from students where (age between 18 and 34) and genger=1 order by age asc; 从小到大
+    select * from students where (age between 18 and 34) and genger=1 order by age desc; 从大到小
+    
+    -- 年龄从小到大，升高从大到小
+    
+   -- 聚合函数
+    -- 总数
+    -- count
+    -- 查询男性有多少人，女性有多少人
+    select * from students where gender=1;
+    select count(*) as 男性人数 from students where gender=1;
+    -- 最大值
+    -- max
+    -- 查询最大的年龄
+    select max(age) as 年龄最大值 from students;
+    -- 最小值
+    -- min
+    -- 最小值
+    -- 求和
+    -- sum
+    -- 计算年龄总和
+    select sum(age) from students where gender=1;
+    select avg(age) from students where gender=1;
+    select sum(age)/count(*) from students;
+    -- 四舍五入 round(123.23, 1) 保留一位小数
+    select round(sum(age)/count(*), 2) from students;
+    select name, round(avg(height), 2)) from students where gender=1;
+    
+   -- 分组 和聚合一起用
+    -- group by
+    -- 按照性别分组， 查询所有的性别
+    -- 失败select * from students group by gender;
+    -- 计算每种性别中的人数
+    select gender from students group by gender;
+    select gender, count(*), max(height), avg(height) from students group by gender;
+    -- group_concat(...)
+    -- 查询同种性别的姓名
+    select gender, count(*), group_concat(name), max(height), avg(height) from students group by gender;
+    select gender, count(*), group_concat(name, age, height)....
+    -- having 是一个分局里面的局部 where是对整个
+    -- 查询平均年龄超过30岁的性别，以及姓名 having avg(age) > 30
+    select gender, group_concat(name) from students group by gender having avg(age)>3;
+   
+   -- 分页  limit要放在最后才行
+    -- limit start, count
+    -- count * pages
+   
+   -- 连接查询
+    -- inner join ... on
+    
+    
+    
+    
     
     

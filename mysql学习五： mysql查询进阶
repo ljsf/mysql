@@ -77,3 +77,34 @@
     -- 查询年龄为18的
     
     -- != 或者 <>
+    
+   -- 逻辑运算符
+    -- and
+    -- 18到28之间的所有学生信息
+    select * from students where age>18 and age<28;
+    
+    -- or
+    -- 18以上或者年龄超过180以上的
+    select * from students where age>18 or height>=180;
+    
+    -- not
+    -- 不再18以上的女性 这个范围内的信息
+    select * from students where not (age>18 and gender=2);
+    
+   --模糊查询   效率有点低
+    -- like
+    -- % 替换1个或者多个
+    -- _替换1个
+    -- 查询姓名中以 "小" 开始的名字
+    select name from students where name like "小%";
+    -- 查询两个字的名字
+    select name from students where name like "__";
+    -- 查询只要两个以上的名字
+    select name from students where name like "__%";
+    
+   -- rlike 正则
+   -- 查询以 周开始的姓名
+   select name from students where name rlike "^周.*";
+    
+    
+    

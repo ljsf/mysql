@@ -203,5 +203,6 @@
      ```
      // 写了sql语句，然后在数据目录中登录mysql然后source areas.sql就可以插入数据
      // linux中source是执行一个程序，touch是创建文件  
-    
+     // mysql中query ok，就代表操作成功，1 row affected (0.06 sec) 不是代表数据错了，是代表，你这个操作，影响了，相当于改动了多少数据
+     // 所有你插入数据的时候，就会有1 row affected数据， 就有一行受到影响
     

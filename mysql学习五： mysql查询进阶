@@ -202,6 +202,6 @@
      );
      ```
      // 写了sql语句，然后在数据目录中登录mysql然后source areas.sql就可以插入数据
-      
+     // linux中source是执行一个程序，touch是创建文件  
     
     

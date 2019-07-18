@@ -210,3 +210,8 @@
     
     select * from province.district, city.district from rc_district as province inner join rc_district as city on province_id = city.pid having province.district="四川省";
     select * from province.district, city.district from rc_district as province inner join rc_district as city on province_id = city.pid where province.district="四川省";
+
+    -- 子查询：就是一个select里面嵌套另一个select语句，先执行里面的select语句，子查询速度有点慢，尽量少用一点
+    select * from students where height = (select max(height) from students);
+    
+      

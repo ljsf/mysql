@@ -172,12 +172,36 @@
    -- 分页  limit要放在最后才行
     -- limit start, count
     -- count * pages
+   select * from students limit 0,5
    
-   -- 连接查询
+   -- 连接查询,就是查询多个表,多个表的关联查询
     -- inner join ... on
     
-    
-    
-    
+    select * from students;
+      内连接查询：查询共同的数据，交集
+      select * from students inner join classes;  // join这个是把所有数组都合并在一起
+      select * from students inner join classes on students.cls_id=classes.id;
+      select s.name as name, c.name as class from students as s inner join classes ad c on s.cls_id = c.id;
+      select s.name as name, c.name as class from students as s inner join classes ad c on s.cls_id = c.id order by c.name, s.name;
+      
+      右连接查询:
+      select * from students ad d right join classes as c on s.cls_id = c.id;
+      左连接查询: 谁在left左边的，谁为基准 一般用 left，因为数据转移就可以了，是以左边为查询，没有为null
+      select * from students ad d left join classes as c on s.cls_id = c.id;
+      select * from students ad d left join classes as c on s.cls_id = c.id having c.id is null;
+     
+     --自关联：一个表中自己关联自己
+       js实现全国三级城市联动select选择，数据相互连接：
+       山东省  青岛市  县,县级市 设计全国的省和市和县 地址
+       在表的结构差不多的时候，这个时候，可以把所有的表用一张表来解决
+     ```
+     create table areas(
+      aid int primary key,
+      atitle varchar(20),
+      pid int
+     );
+     ```
+     // 写了sql语句，然后在数据目录中登录mysql然后source areas.sql就可以插入数据
+      
     
     

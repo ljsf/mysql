@@ -12,7 +12,7 @@ CREATE TABLE `rc_district` (
   PRIMARY KEY (`district_id`),
   KEY `parent_id` (`pid`),
   KEY `region_type` (`level`)
-) ENGINE=MyISAM AUTO_INCREMENT=3432 DEFAULT CHARSET=utf8 COMMENT='地区表';
+)COMMENT='地区表';
  
 -- ----------------------------
 -- Records of rc_district

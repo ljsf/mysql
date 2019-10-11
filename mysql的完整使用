@@ -1,0 +1,55 @@
+关系型管理数据库RDBMS --> mysql
+mysql 关系型数据库，使用前，先建表
+redis是缓存
+MongoDB 非关系型数据库
+
+ 通过程序来管理数据库
+ 
+ SQL：不区分大小写
+ 
+ mysql8 数据快， 用varchar替换char
+ 数据库类型：
+  整数：int bit
+  小数： decimal 表示浮点数decimal(5,2)表示共存5位数，小数占2位
+  字符串： varchar， char  char表示固定长度的字符串 varchar表示可变长度 text（超过4000以上的推荐使用）表示存储大文本，当字符大于4000时推荐使用
+  日期时间： date， time， datetime  
+  枚举：enum
+  说明：
+    对于图片，音频，视频等文件，不存储在数据库中，而是上传到某个服务器上，然后在表中存储这个文件的路径
+    更多参考：https://blog.csdn.net/anxpp/article/details/51284106
+    
+ 约束：
+  主键primary key： 主键
+  not null：非空
+  unique：唯一
+  default：默认
+  foreign key： 外键 一个表的值是另一表的主键 叫做这个表的外键 具有约束作用能不用就不用，多了就麻烦，性能会下降，最好是从代码逻辑里面去处理
+  
+  
+ 1.登录： mysql -uroot -hlocalhost -p
+ 
+ 2.数据库操作
+  show databases;
+  select now();   显示时间
+  select version(); 显示版本
+  
+  create database python04; 创建数据库python04
+  show create database python04; 查看数据库创建情况
+  
+  drop database python04; 删除数据库
+  
+  select database(); 查询当前使用的数据库
+  
+  use python04; 选择数据库
+  
+  创建数据表：
+  create table xxxxx(id int, name varchar(30));
+  desc xxxxx;
+  
+  create table yyyyy(id int primary key not null auto_increment, name varchar(30));
+  
+  
+  
+ 
+ 
+

@@ -48,8 +48,26 @@ MongoDB 非关系型数据库
   
   create table yyyyy(id int primary key not null auto_increment, name varchar(30));
   
+  create table students(
+   id int unsigned not null auto_increment primary key,
+   name varchar(30),
+   age tinyint unsigned,
+   high decimal(5,2),
+   gender enum("男", "女", "中性", "保密") default "保密",
+   cls_id int unsigned
+  );
+  
+  insert into student values(0, "老王", 18, 188.88, "男", 0)
+  -- SQL里面的注释
+ 
+  修改表：alter table students add birthday datetime;
+  alter table students modify birthday date;
+  alter table students change birthday birth date default "2000-01-01"
+  alter table students drop high;
+  
+  数据备份
+  限制权限 把drop给干掉
   
   
- 
- 
+  
 
